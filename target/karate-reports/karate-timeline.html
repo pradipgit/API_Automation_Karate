@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"features\/comments[1:6]","start":1773215808700,"end":1773215809761,"title":"features\/comments[1:6] 13:26:48.700-13:26:49.761 Get comments for a post"},{"id":2,"group":1,"content":"features\/createUser[1:3]","start":1773215810240,"end":1773215810792,"title":"features\/createUser[1:3] 13:26:50.240-13:26:50.792 Create a new user"},{"id":3,"group":1,"content":"features\/createUser[2.1:24]","start":1773215810809,"end":1773215811193,"title":"features\/createUser[2.1:24] 13:26:50.809-13:26:51.193 Get user data"},{"id":4,"group":1,"content":"features\/createUser[2.2:24]","start":1773215811201,"end":1773215811582,"title":"features\/createUser[2.2:24] 13:26:51.201-13:26:51.582 Get user data"},{"id":5,"group":1,"content":"features\/createUser[2.3:24]","start":1773215811590,"end":1773215811967,"title":"features\/createUser[2.3:24] 13:26:51.590-13:26:51.967 Get user data"},{"id":6,"group":1,"content":"features\/getUser[1:3]","start":1773215812064,"end":1773215812469,"title":"features\/getUser[1:3] 13:26:52.064-13:26:52.469 Verify user details"},{"id":7,"group":1,"content":"features\/posts[1:6]","start":1773215812515,"end":1773215812921,"title":"features\/posts[1:6] 13:26:52.515-13:26:52.921 List posts"},{"id":8,"group":1,"content":"features\/posts[2:13]","start":1773215812927,"end":1773215813340,"title":"features\/posts[2:13] 13:26:52.927-13:26:53.340 Get a single post"},{"id":9,"group":1,"content":"features\/posts[3:22]","start":1773215813346,"end":1773215813828,"title":"features\/posts[3:22] 13:26:53.346-13:26:53.828 Create a post"},{"id":10,"group":1,"content":"features\/posts[4:30]","start":1773215813835,"end":1773215814331,"title":"features\/posts[4:30] 13:26:53.835-13:26:54.331 Update a post (PUT)"},{"id":11,"group":1,"content":"features\/posts[5:38]","start":1773215814336,"end":1773215814831,"title":"features\/posts[5:38] 13:26:54.336-13:26:54.831 Delete a post"},{"id":12,"group":1,"content":"features\/reqres_get_user[1:22]","start":1773215814924,"end":1773215814984,"title":"features\/reqres_get_user[1:22] 13:26:54.924-13:26:54.984 Positive - get existing user","className":"failed"},{"id":13,"group":1,"content":"features\/reqres_get_user[2:29]","start":1773215815054,"end":1773215815097,"title":"features\/reqres_get_user[2:29] 13:26:55.054-13:26:55.097 Negative - invalid user id","className":"failed"},{"id":14,"group":1,"content":"features\/reqres_get_user[3:34]","start":1773215815105,"end":1773215815152,"title":"features\/reqres_get_user[3:34] 13:26:55.105-13:26:55.152 Response schema validation","className":"failed"},{"id":15,"group":1,"content":"features\/users[1:25]","start":1773215815223,"end":1773215815747,"title":"features\/users[1:25] 13:26:55.223-13:26:55.747 List users (positive)"},{"id":16,"group":1,"content":"features\/users[2.1:41]","start":1773215815757,"end":1773215816162,"title":"features\/users[2.1:41] 13:26:55.757-13:26:56.162 Get user by id (positive, data-driven)"},{"id":17,"group":1,"content":"features\/users[2.2:41]","start":1773215816168,"end":1773215816547,"title":"features\/users[2.2:41] 13:26:56.168-13:26:56.547 Get user by id (positive, data-driven)"},{"id":18,"group":1,"content":"features\/users[2.3:41]","start":1773215816553,"end":1773215816947,"title":"features\/users[2.3:41] 13:26:56.553-13:26:56.947 Get user by id (positive, data-driven)"},{"id":19,"group":1,"content":"features\/users[3.1:50]","start":1773215816953,"end":1773215817329,"title":"features\/users[3.1:50] 13:26:56.953-13:26:57.329 Get user by id (negative - not found)"},{"id":20,"group":1,"content":"features\/users[3.2:51]","start":1773215817334,"end":1773215817724,"title":"features\/users[3.2:51] 13:26:57.334-13:26:57.724 Get user by id (negative - not found)"},{"id":21,"group":1,"content":"features\/users[3.3:52]","start":1773215817730,"end":1773215818122,"title":"features\/users[3.3:52] 13:26:57.730-13:26:58.122 Get user by id (negative - not found)"},{"id":22,"group":1,"content":"features\/users[4:54]","start":1773215818127,"end":1773215818517,"title":"features\/users[4:54] 13:26:58.127-13:26:58.517 Get user by id (negative - invalid type)"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
